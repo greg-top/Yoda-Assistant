@@ -6,6 +6,8 @@ import MorningView from "../MorningView/MoningView";
 import AfternoonView from "../AfternoonView/AfternoonView";
 import EveningView from "../EveningView/EveningView";
 
+import Header from "../../components/Header/Header";
+
 class Root extends React.Component {
   state = {
     name: "Grzegorz",
@@ -14,7 +16,7 @@ class Root extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <h2>Header component goes here</h2>
+        <Header />
         <p>My name is {this.state.name}</p>
         <Switch>
           <Route exact path="/" component={MorningView} />
