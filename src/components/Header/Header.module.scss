@@ -14,34 +14,3 @@
   font-size: 1.6em;
   text-align: center;
 }
-
-// TODO: move SCSS to Button.module.scss
-
-$base-color: #fdf001;
-$secondary-color: #000;
-$border-color: $base-color;
-
-.button {
-  display: block;
-  font-size: 10px;
-  text-decoration: none;
-  padding: 7px 12px;
-  font-family: "Galaxy Black", serif;
-  font-size: 0.8em;
-  background: $secondary-color;
-  border: 2px solid $base-color;
-  outline: 2px solid #000;
-  color: $base-color;
-  cursor: pointer;
-}
-
-.secondary {
-  @extend .button;
-
-  //   width: 120px;
-  //   background-color: #1e58ff;
-  //   color: white;
-  //   font-weight: 700;
-  //   font-size: 0.8em;
-  //   box-shadow: 0 5px 20px -5px rgba(#818181, 0.9);
-}

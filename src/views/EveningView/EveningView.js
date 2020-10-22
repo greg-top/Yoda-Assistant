@@ -1,7 +1,8 @@
 import React from "react";
+import Title from "../../components/Title/Title";
 
 const EveningView = () => (
-  <h2>This is evening notes view</h2> //
+  <Title secondary> Evening notes goes here</Title> //
 );
 
 export default EveningView;

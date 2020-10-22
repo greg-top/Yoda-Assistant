@@ -1,0 +1,10 @@
+.title {
+  margin: 0 0 0 10px;
+  font-weight: 700;
+}
+
+.secondary {
+  @extend .title;
+
+  color: black;
+}
