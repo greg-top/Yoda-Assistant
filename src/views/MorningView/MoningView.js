@@ -5,8 +5,8 @@ import List from "../../components/List/List";
 const MorningView = () => (
   <>
     <div>
-      <Title> Morning notes, must do - Joda</Title>
-      <List />
+      <Title> Morning tasks, must do - Joda</Title>
+      <List type="morning" />
     </div>
   </>
 );

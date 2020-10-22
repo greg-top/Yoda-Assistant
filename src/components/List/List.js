@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./List.module.scss";
+import AppContext from "../../context";
 
 import yoda1 from "../../assets/images/yoda/yoda-1.png";
 import yoda2 from "../../assets/images/yoda/yoda-2.png";
@@ -16,7 +17,7 @@ const quotes = [
   "Pass on what you have learned.",
 ];
 
-const List = () => {
+const List = ({ type }) => {
   const draw = (el) => {
     const index = Math.floor(Math.random() * el.length - 1) + 1;
 
@@ -24,12 +25,57 @@ const List = () => {
   };
 
   return (
-    <ul className={styles.wrapper}>
-      <ListItem randomAvatar={draw(avatars)} randomQuote={draw(quotes)} />
-      <ListItem randomAvatar={draw(avatars)} randomQuote={draw(quotes)} />
-      <ListItem randomAvatar={draw(avatars)} randomQuote={draw(quotes)} />
-      <ListItem randomAvatar={draw(avatars)} randomQuote={draw(quotes)} />
-    </ul>
+    <AppContext.Consumer>
+      {(context) => {
+        if (type === "morning") {
+          return (
+            <ul className={styles.wrapper}>
+              {context.morningItems.map((item) => (
+                <ListItem
+                  randomAvatar={draw(avatars)}
+                  randomQuote={draw(quotes)} //
+                  title={item.title}
+                  message={item.message}
+                  isImportant={item.isImportant}
+                  key={item.title}
+                />
+              ))}
+            </ul>
+          );
+        } else if (type === "afternoon") {
+          return (
+            <ul className={styles.wrapper}>
+              {context.afternoonItems.map((item) => (
+                <ListItem
+                  randomAvatar={draw(avatars)}
+                  randomQuote={draw(quotes)} //
+                  title={item.title}
+                  message={item.message}
+                  isImportant={item.isImportant}
+                  key={item.title}
+                />
+              ))}
+            </ul>
+          );
+        } else if (type === "evening") {
+          return (
+            <ul className={styles.wrapper}>
+              {context.eveningItems.map((item) => (
+                <ListItem
+                  randomAvatar={draw(avatars)}
+                  randomQuote={draw(quotes)} //
+                  title={item.title}
+                  message={item.message}
+                  isImportant={item.isImportant}
+                  key={item.title}
+                />
+              ))}
+            </ul>
+          );
+        }
+      }}
+    </AppContext.Consumer>
   );
 };
+
 export default List;
