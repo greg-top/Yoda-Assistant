@@ -32,7 +32,7 @@ Formularz posiada nastepujace pola:
 
 ## Stack:
 
-- React (create-react-app, react-dom .... DOPISAC, react-router, react-router-dom, function components, class components, Context API)
+- React (create-react-app, react-dom, react-router, react-router-dom, function components, class components, Context API)
 - CSS modules
 - SCSS
 - Netlify-cli (deployment)
@@ -85,6 +85,8 @@ npm install node-sass --save
 - Modal (w pozniejszym etapie prac)
 
 ```
+3.) Ostylowac komponenty
+4.) Napisac logike do obslugi aplikacji
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
