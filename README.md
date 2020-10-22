@@ -37,27 +37,27 @@ The form has the following fields:
 - Netlify-cli (deployment)
 ```
 
-## Instalacja wymaganych paczek
+## Installation of the required packages
 
-- Utworzenie projektu:
+- initialize project:
 
 ```
 npx create-react-app yoda-assistant
 ```
 
-- Instalacja react-router i react-router-dom
+- Installation of react-router and react-router-dom
 
 ```
 npm install react-router react-router-dom --save
 ```
 
-- Instalacja Sass'a
+- Installation of Sass
 
 ```
 npm install node-sass --save
 ```
 
-- CSS modules - zawiera sie juz w paczce create-react-app
+- CSS modules - already included in the create-react-app package
 
 ## Work Plan
 
