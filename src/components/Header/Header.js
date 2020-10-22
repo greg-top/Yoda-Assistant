@@ -8,7 +8,7 @@ import Title from "../Title/Title";
 const Header = () => (
   <header className={styles.wrapper}>
     <img className={styles.logo} src={logoImage} alt="Yoda Assistant logo" />
-    <Title secondary>Yoda Assistant</Title>
+    <Title>Yoda Assistant</Title>
     <HeaderNavigation />
     <Button>
       You must add item <br /> {`<(-_-)>`}

@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css"; //global styles
+import styles from "./Root.module.scss";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MorningView from "../MorningView/MoningView";
@@ -10,20 +11,21 @@ import Header from "../../components/Header/Header";
 
 class Root extends React.Component {
   state = {
-    name: "Grzegorz",
+    items: [],
   };
 
   render() {
     return (
       <BrowserRouter>
         <Header />
-        <p>My name is {this.state.name}</p>
-        <Switch>
-          <Route exact path="/" component={MorningView} />
-          <Route path="/afternoon" component={AfternoonView} />
-          <Route path="/evening" component={EveningView} />
-        </Switch>
-        <h2>Form component goes here</h2>
+        <div className={styles.wrapper}>
+          <Switch>
+            <Route exact path="/" component={MorningView} />
+            <Route path="/afternoon" component={AfternoonView} />
+            <Route path="/evening" component={EveningView} />
+          </Switch>
+          <div className={styles.form}>form goes here</div>
+        </div>
       </BrowserRouter>
     );
   }
