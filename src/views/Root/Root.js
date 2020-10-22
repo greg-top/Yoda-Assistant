@@ -9,74 +9,51 @@ import AfternoonView from "../AfternoonView/AfternoonView";
 import EveningView from "../EveningView/EveningView";
 
 import Header from "../../components/Header/Header";
+import Form from "../../components/Form/Form";
 
 class Root extends React.Component {
   state = {
-    morningItems: [
-      {
-        title: "Morning task title 1",
-        message:
-          "Morning task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 11",
-        isImportant: false,
-      },
-      {
-        title: "Morning task title 2",
-        message:
-          "Morning task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 22",
-        isImportant: true,
-      },
-      {
-        title: "Morning task title 3",
-        message:
-          "Morning task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 33",
-        isImportant: true,
-      },
-    ],
-    afternoonItems: [
-      {
-        title: "Afternoon task title 1",
-        message:
-          "Afternoon task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 11",
-        isImportant: false,
-      },
-      {
-        title: "Afternoon task title 2",
-        message:
-          "Afternoon task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 22",
-        isImportant: true,
-      },
-      {
-        title: "Afternoon task title 3",
-        message:
-          "Afternoon task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 33",
-        isImportant: true,
-      },
-    ],
-    eveningItems: [
-      {
-        title: "Evening task title 1",
-        message:
-          "Evening task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 11",
-        isImportant: false,
-      },
-      {
-        title: "Evening task title 2",
-        message:
-          "Evening task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 22",
-        isImportant: true,
-      },
-      {
-        title: "Evening task title 3",
-        message:
-          "Evening task message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magnam voluptas aut, facilis architecto itaque cumque ducimus veritatis debitis, et assumenda, necessitatibus tempora consectetur eos. Nesciunt ab architecto eos tenetur? 33",
-        isImportant: true,
-      },
-    ],
+    title: null,
+    description: null,
+    type: null,
+    morningItems: [],
+    afternoonItems: [],
+    eveningItems: [],
+  };
+
+  addItem = (e) => {
+    e.preventDefault();
+    const title = e.target.querySelector("#title").value;
+    const description = e.target.querySelector("#description").value;
+    const type = e.target.querySelector("#type").value;
+    const isImportant = e.target.querySelector("#isImportant").checked;
+
+    const newItem = {
+      title: title,
+      message: description,
+      isImportant: isImportant,
+    };
+
+    if (type === "morning") {
+      this.setState(() => ({
+        morningItems: [...this.state.morningItems, newItem],
+      }));
+    } else if (type === "afternoon") {
+      this.setState(() => ({
+        afternoonItems: [...this.state.afternoonItems, newItem],
+      }));
+    } else if (type === "evening") {
+      this.setState(() => ({
+        eveningItems: [...this.state.eveningItems, newItem],
+      }));
+    }
+    e.target.reset();
   };
 
   render() {
     const contextElements = {
       ...this.state,
+      addItem: this.addItem,
     };
 
     return (
@@ -89,7 +66,7 @@ class Root extends React.Component {
               <Route path="/afternoon" component={AfternoonView} />
               <Route path="/evening" component={EveningView} />
             </Switch>
-            <div className={styles.form}>form goes here</div>
+            <Form />
           </div>
         </AppContext.Provider>
       </BrowserRouter>

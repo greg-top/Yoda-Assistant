@@ -11,7 +11,7 @@ const Header = () => (
     <Title>Yoda Assistant</Title>
     <HeaderNavigation />
     <Button>
-      You must add item <br /> {`<(-_-)>`}
+      Greg Codewalker <br /> {`<(-_-)>`}
     </Button>
   </header>
 );

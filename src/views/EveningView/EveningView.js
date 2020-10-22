@@ -5,7 +5,7 @@ import List from "../../components/List/List";
 const EveningView = () => (
   <>
     <div>
-      <Title> Evening tasks, must do - Joda</Title>
+      <Title> Evening tasks, you must do - Joda</Title>
       <List type="evening" />
     </div>
   </>

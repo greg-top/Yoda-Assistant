@@ -7,6 +7,7 @@ import yoda2 from "../../assets/images/yoda/yoda-2.png";
 import yoda3 from "../../assets/images/yoda/yoda-3.png";
 import yoda4 from "../../assets/images/yoda/yoda-4.png";
 import ListItem from "./ListItem";
+import Title from "../Title/Title";
 const avatars = [yoda1, yoda2, yoda3, yoda4];
 
 const quotes = [
@@ -28,50 +29,74 @@ const List = ({ type }) => {
     <AppContext.Consumer>
       {(context) => {
         if (type === "morning") {
-          return (
-            <ul className={styles.wrapper}>
-              {context.morningItems.map((item) => (
-                <ListItem
-                  randomAvatar={draw(avatars)}
-                  randomQuote={draw(quotes)} //
-                  title={item.title}
-                  message={item.message}
-                  isImportant={item.isImportant}
-                  key={item.title}
-                />
-              ))}
-            </ul>
-          );
+          if (context.morningItems.length) {
+            return (
+              <ul className={styles.wrapper}>
+                {context.morningItems.map((item, index) => (
+                  <ListItem
+                    randomAvatar={draw(avatars)}
+                    randomQuote={draw(quotes)} //
+                    title={item.title}
+                    message={item.message}
+                    isImportant={item.isImportant}
+                    key={item.title}
+                  />
+                ))}
+              </ul>
+            );
+          } else {
+            return (
+              <div className={styles.noTasks}>
+                <Title>Some {type} tasks you must add</Title>
+              </div>
+            );
+          }
         } else if (type === "afternoon") {
-          return (
-            <ul className={styles.wrapper}>
-              {context.afternoonItems.map((item) => (
-                <ListItem
-                  randomAvatar={draw(avatars)}
-                  randomQuote={draw(quotes)} //
-                  title={item.title}
-                  message={item.message}
-                  isImportant={item.isImportant}
-                  key={item.title}
-                />
-              ))}
-            </ul>
-          );
+          if (context.afternoonItems.length) {
+            return (
+              <ul className={styles.wrapper}>
+                {context.afternoonItems.map((item) => (
+                  <ListItem
+                    randomAvatar={draw(avatars)}
+                    randomQuote={draw(quotes)} //
+                    title={item.title}
+                    message={item.message}
+                    isImportant={item.isImportant}
+                    key={item.title}
+                  />
+                ))}
+              </ul>
+            );
+          } else {
+            return (
+              <div className={styles.noTasks}>
+                <Title>Some {type} tasks you must add</Title>
+              </div>
+            );
+          }
         } else if (type === "evening") {
-          return (
-            <ul className={styles.wrapper}>
-              {context.eveningItems.map((item) => (
-                <ListItem
-                  randomAvatar={draw(avatars)}
-                  randomQuote={draw(quotes)} //
-                  title={item.title}
-                  message={item.message}
-                  isImportant={item.isImportant}
-                  key={item.title}
-                />
-              ))}
-            </ul>
-          );
+          if (context.eveningItems.length) {
+            return (
+              <ul className={styles.wrapper}>
+                {context.eveningItems.map((item) => (
+                  <ListItem
+                    randomAvatar={draw(avatars)}
+                    randomQuote={draw(quotes)} //
+                    title={item.title}
+                    message={item.message}
+                    isImportant={item.isImportant}
+                    key={item.title}
+                  />
+                ))}
+              </ul>
+            );
+          } else {
+            return (
+              <div className={styles.noTasks}>
+                <Title>Some {type} tasks you must add</Title>
+              </div>
+            );
+          }
         }
       }}
     </AppContext.Consumer>
