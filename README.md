@@ -2,40 +2,40 @@
 
 ## About
 
-Aplikacja ma dzialać jako Daily Assistant i wykorzystywać maksymalnie wszystkie podstawowe aspekty React'a.
+Daily Assistant, which uses up all the basic aspects of React.
 
-## Zasada działania:
+## How it works:
 
-1.) Użytkownik może dodać notatkę w jednym z trzech działów:
+1.) The user can add a note in one of the three views:
 
-- rano
-- popołudniu
-- wieczorem
+- morning
+- afternoon
+- evening
 
-Uzytkownik moze przelaczac sie miedzy dzialami za pomoca nawigacji widocznej w header. (na poczatku bd to 3 oddzielne sekcje na jednej stronie??? - rozbudowa w dalszej czesci) <br>
+The user can switch between the sections using the navigation shown in the header.
 
-2.) Za dodawanie notatek odpowiada formularz, ktory jest widoczny po prawej stronie okna (okno jest podzielone na pol).
-Ewentualnie moze to byc modal odpalany za pomoca przyciku w header (dalszy etap pracy)
+2.) The form on the right side of the window is responsible for adding notes.
 
-Formularz posiada nastepujace pola:
+The form has the following fields:
 
 ```
-- radio buttony, ktore odpowiadaja do ktorej sekcji bd wstawiali nasza notatke
 - title
 - description
-- link (moze dodac jakis event zewnetrzny, np. spotkanie z klientem, wtedy pojawi sie dodatkowo odliczanie za ile jest wyjscie - Dalszy etap prac)
-- Czy jest to notatka priorytetowa?
-  <br>
+- isImportant
+- type of note
+
 ```
 
-3.) Gdy uzytkownik wypelni formularz i kliknie przycisk dodaj, notatka powedruje do odpowiedniej podstrony lub sekcji
+3.) When the user fills out the form and clicks the add button, the note will go to the appropriate view.
 
 ## Stack:
 
+```
 - React (create-react-app, react-dom, react-router, react-router-dom, function components, class components, Context API)
 - CSS modules
 - SCSS
 - Netlify-cli (deployment)
+```
 
 ## Instalacja wymaganych paczek
 
@@ -59,9 +59,9 @@ npm install node-sass --save
 
 - CSS modules - zawiera sie juz w paczce create-react-app
 
-## Plan pracy
+## Work Plan
 
-1.) Zbudowac widoki dla naszej aplikacji za pomoca react-router
+1.) Build views for the application with a react-router
 
 ```
 - Root
@@ -71,8 +71,9 @@ npm install node-sass --save
 ```
 
 <br>
-2.) Stworzyc komponenty do obslugi aplikacji:
+2.) Create components for handling application
 
+```
 - Header
   - HeaderNavigation
 - Button
@@ -80,14 +81,17 @@ npm install node-sass --save
 - List
   - ListItem
 - Form
-  - FormRadio
-  - FormInput
-- Modal (w pozniejszym etapie prac)
-
 ```
-3.) Ostylowac komponenty
-4.) Napisac logike do obslugi aplikacji
+
+3.) Style the components
+4.) Create a context using the React context API and write the application logic
+
+---
+
+## Live demo
+
+https://awesome-pasteur-fce72d.netlify.app/
+
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-```
